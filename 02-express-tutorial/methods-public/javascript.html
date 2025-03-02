@@ -48,8 +48,9 @@
 
       const fetchPeople = async () => {
         try {
+          //fetch data from server
           const { data } = await axios.get('/api/people')
-
+          //appends h5 tag to the people data
           const people = data.data.map((person) => {
             return `<h5>${person.name}</h5>`
           })
@@ -68,6 +69,7 @@
         const nameValue = input.value
 
         try {
+          //send post request if submit button is clicked
           const { data } = await axios.post('/api/people', { name: nameValue })
           const h5 = document.createElement('h5')
           h5.textContent = data.person

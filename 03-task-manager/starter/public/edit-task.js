@@ -13,7 +13,8 @@ const showTask = async () => {
     const {
       data: { task },
     } = await axios.get(`/api/v1/tasks/${id}`)
-    const { _id: taskID, completed, name } = task
+    const { "_id": taskID, completed, name } = task
+    //console.log(`GET REQUEST: ${JSON.stringify(task)}`);
 
     taskIDDOM.textContent = taskID
     taskNameDOM.value = name
@@ -43,6 +44,7 @@ editFormDOM.addEventListener('submit', async (e) => {
     })
 
     const { _id: taskID, completed, name } = task
+    console.log(`PATCH REQUEST ${JSON.stringify(task)}`);
 
     taskIDDOM.textContent = taskID
     taskNameDOM.value = name
